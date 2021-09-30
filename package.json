@@ -1,0 +1,14 @@
+{
+  "name": "commp229-f2021-week2",
+  "version": "0.0.1",
+  "description": "Demo Project Web",
+  "main": "index.js",
+  "author": "Rosa Hongoc",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.2"
+  }
+}
