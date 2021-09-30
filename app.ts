@@ -4,10 +4,10 @@ import path from 'path';
 import cookieParser from'cookie-parser';
 import logger from'morgan';
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
 
-var app = express();
+const app = express(); //exports app as the default object for this module
 export default app;
 
 // view engine setup
@@ -29,7 +29,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err: createError.HttpError, req: express.Request, res: express.Response, next: express.NextFunction) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
