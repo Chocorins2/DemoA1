@@ -4,9 +4,13 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('demoa1:server');
-var http = require('http');
+import app from './app';
+//var debug = require('debug')('demoa1:server');
+import debug from 'debug';
+debug('demoa1:server');
+//var http = require('http');
+import http from 'http';
+import createError from 'http-errors';
 
 /**
  * Get port from environment and store in Express.
@@ -33,7 +37,7 @@ server.on('listening', onListening);
  * Normalize a port into a number, string, or false.
  */
 
-function normalizePort(val) {
+function normalizePort(val: string): number | string | boolean {
   var port = parseInt(val, 10);
 
   if (isNaN(port)) {
@@ -53,7 +57,8 @@ function normalizePort(val) {
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error) {
+function onError(error:createError.HttpError): void 
+{
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -81,7 +86,8 @@ function onError(error) {
  * Event listener for HTTP server "listening" event.
  */
 
-function onListening() {
+function onListening(): void 
+{
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
