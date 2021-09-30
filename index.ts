@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-import app from './app';
+import app from './Server/Config/app';
 //var debug = require('debug')('demoa1:server');
 import debug from 'debug';
 debug('demoa1:server');

@@ -4,31 +4,31 @@ export default router;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Home'});
 });
 
 /* GET home page. */
 router.get('/home', function(req, res, next) {
-  res.render('index', { title: 'Home' });
+  res.render('index', { title: 'Home', page:'home'  });
 });
 
 /* GET about page. */
 router.get('/about', function(req, res, next) {
-  res.render('index', { title: 'About' });
+  res.render('index', { title: 'About Us', page:'about'  });
 });
 
 /* GET project page. */
 router.get('/project', function(req, res, next) {
-  res.render('index', { title: 'Project' });
+  res.render('index', { title: 'Our Projects', page:'projects' });
 });
 
 /* GET services page. */
 router.get('/services', function(req, res, next) {
-  res.render('index', { title: 'Services' });
+  res.render('index', { title: 'Our Services', page:'services'  });
 });
 
 /* GET contact page. */
 router.get('/contact', function(req, res, next) {
-  res.render('index', { title: 'Contact' });
+  res.render('index', { title: 'Contact Us', page:'contact'  });
 });
 //module.exports = router;

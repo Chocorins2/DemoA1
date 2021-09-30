@@ -14,9 +14,11 @@
 <body>
   <!-- Navigation Section -->
   <header><%- include('./Components/header.ejs')%></header>
-  <div class="container">
-    <h1>Welcome to the <%= title %> page</h1>
-  </div>
+  <!-- Main Content -->
+  <main>
+    <%- include('./content/'+page+'.ejs')%>
+  </main>
+
     <!-- Bottom Nav -->
     <footer><%- include('./Components/footer.ejs')%></footer>
     <!-- JavaScript Section -->
