@@ -4,19 +4,20 @@
  * Module dependencies.
  */
 
+ import createError from 'http-errors';
 import app from './Server/Config/app';
-//var debug = require('debug')('demoa1:server');
+//var debug = require('debug')('demoa2:server');
 import debug from 'debug';
-debug('demoa1:server');
+debug('demoa2:server');
 //var http = require('http');
 import http from 'http';
-import createError from 'http-errors';
+
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort('3003');
 app.set('port', port);
 
 /**
@@ -37,15 +38,18 @@ server.on('listening', onListening);
  * Normalize a port into a number, string, or false.
  */
 
-function normalizePort(val: string): number | string | boolean {
+function normalizePort(val: string): number | string | boolean 
+{
   var port = parseInt(val, 10);
 
-  if (isNaN(port)) {
+  if (isNaN(port)) 
+  {
     // named pipe
     return val;
   }
 
-  if (port >= 0) {
+  if (port >= 0) 
+  {
     // port number
     return port;
   }

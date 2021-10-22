@@ -1,7 +1,11 @@
 {
-  "name": "demoa1",
+  "name": "demoa2",
   "version": "0.0.0",
   "private": true,
+  "description": "Demo Project for COMP229",
+  "main": "index.js",
+  "author": "Ngoc Phuong Uyen Ho",
+  "license": "MIT",
   "scripts": {
     "start": "node index.js"
   },

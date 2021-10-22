@@ -6,9 +6,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./Server/Config/app"));
 const debug_1 = __importDefault(require("debug"));
-debug_1.default('demoa1:server');
+debug_1.default('demoa2:server');
 const http_1 = __importDefault(require("http"));
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort('3003');
 app_1.default.set('port', port);
 var server = http_1.default.createServer(app_1.default);
 server.listen(port);
