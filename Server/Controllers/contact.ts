@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import { NativeError } from 'mongoose';
 
 // Contact Model Reference - db.Contact
-import Contact from '../Models/Contact';
+import Contact from '../Models/contact';
 
 // import Util Functions
 import { UserDisplayName } from '../Util';
