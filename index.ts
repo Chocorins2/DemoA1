@@ -17,7 +17,7 @@ import http from 'http';
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort('3003');
+var port = normalizePort(process.env.PORT||'3003');
 app.set('port', port);
 
 /**
