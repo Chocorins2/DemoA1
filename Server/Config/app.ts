@@ -28,7 +28,6 @@ import flash from 'connect-flash';
 
 // attach router files
 import indexRouter from '../Routes/index';
-import clothingRouter from '../Routes/clothing';
 import contactsRouter from '../Routes/contact';
 
 // Express Web App Configuration
