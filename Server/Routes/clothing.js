@@ -8,7 +8,7 @@ const router = express_1.default.Router();
 exports.default = router;
 const clothing_1 = require("../Controllers/clothing");
 const index_1 = require("../Util/index");
-router.get('/', clothing_1.DisplayClothingListPage);
+router.get('/', index_1.AuthGuard, clothing_1.DisplayClothingListPage);
 router.get('/add', index_1.AuthGuard, clothing_1.DisplayAddPage);
 router.get('/edit/:id', index_1.AuthGuard, clothing_1.DisplayEditPage);
 router.post('/add', index_1.AuthGuard, clothing_1.ProcessAddPage);
