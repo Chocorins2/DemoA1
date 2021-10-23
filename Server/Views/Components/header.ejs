@@ -28,10 +28,11 @@
 
           <!-- Clothing List Secure area and Authentication Links -->
           <li class="nav-item">
-            <a class="nav-link" href="/clothing-list"><i class="fas fa-tshirt fa-lg"></i> Clothing List</a>
+            <a class="nav-link" href="/Contact-list"><i class="fas fa-address-book fa-lg"></i> Business Contact List</a>
           </li>
 
           <% if(displayName) { %>
+          <li class="navbar-text"><i class="fas fa-lg fa-user"></i> Welcome, <%= displayName %></li>
           <li class="nav-item">
             <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt fa-lg"></i> Logout</a>
           </li>

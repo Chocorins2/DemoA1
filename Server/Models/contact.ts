@@ -1,14 +1,13 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema; // Schema alias
 
-const ContactSchema = new Schema
-({
-    FullName: String,
-    EmailAddress: String,
-    ContactNumber: String
+const ContactSchema = new Schema({
+    name: String,
+    number: Number,
+    email: String
 },
 {
-    collection: "contacts"
+    collection:"contact"
 });
 
 const Model = mongoose.model("Contact", ContactSchema);

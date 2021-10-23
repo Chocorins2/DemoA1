@@ -1,8 +1,8 @@
 import express, { Request, Response, NextFunction } from 'express';
 import { NativeError } from 'mongoose';
 
-// Clothing Model Reference - db.clothing
-import Clothing from '../Models/clothing';
+// Contact Model Reference - db.Contact
+import Contact from '../Models/Contact';
 
 // import Util Functions
 import { UserDisplayName } from '../Util';
@@ -11,10 +11,10 @@ import { UserDisplayName } from '../Util';
 // Display Functions
 
 //(R)ead in CRUD
-export function DisplayClothingListPage(req: Request, res: Response, next: NextFunction): void
+export function DisplayContactListPage(req: Request, res: Response, next: NextFunction): void
 {
-    // db.clothing.find()
-    Clothing.find((err, clothingCollection) =>
+    // db.Contact.find()
+    Contact.find((err, ContactCollection) =>
     {
         if(err)
         {
@@ -22,8 +22,8 @@ export function DisplayClothingListPage(req: Request, res: Response, next: NextF
             res.end(err);
         }
         
-        res.render('index', { title: 'Clothing List', page: 'clothing-list', clothing: clothingCollection, displayName: UserDisplayName(req)   });
-    });
+        res.render('index', { title: 'Contact List', page: 'Contact-list', Contact: ContactCollection, displayName: UserDisplayName(req)   });
+    }).sort({name:1});
 }
 
 // Display (E)dit page
@@ -33,9 +33,9 @@ export function DisplayEditPage(req: Request, res: Response, next: NextFunction)
 
     // pass the id to the db
 
-    // db.clothing.find({"_id": id})
+    // db.Contact.find({"_id": id})
 
-    Clothing.findById(id, {}, {}, (err, clothingItemToEdit) => 
+    Contact.findById(id, {}, {}, (err, ContactItemToEdit) => 
     {
         if(err)
         {
@@ -44,7 +44,7 @@ export function DisplayEditPage(req: Request, res: Response, next: NextFunction)
         }
 
         // show the edit view
-        res.render('index', { title: 'Edit', page: 'update', clothing: clothingItemToEdit, displayName: UserDisplayName(req)   });
+        res.render('index', { title: 'Edit', page: 'update', Contact: ContactItemToEdit, displayName: UserDisplayName(req)   });
     });
 }
 
@@ -52,7 +52,7 @@ export function DisplayEditPage(req: Request, res: Response, next: NextFunction)
 export function DisplayAddPage(req: Request, res: Response, next: NextFunction): void
 {
     // show the edit view
-    res.render('index', { title: 'Add', page: 'update', clothing: '', displayName: UserDisplayName(req)  });
+    res.render('index', { title: 'Add', page: 'update', Contact: '', displayName: UserDisplayName(req)  });
 }
 
 // Process Functions
@@ -62,35 +62,32 @@ export function ProcessEditPage(req: Request, res: Response, next: NextFunction)
 {
     let id = req.params.id;
 
-    // instantiate a new Clothing Item
-    let updatedClothingItem = new Clothing
+    // instantiate a new Contact Item
+    let updatedContactItem = new Contact
     ({
-      "_id": id,
-      "name": req.body.name,
-      "brand": req.body.brand,
-      "category": req.body.category,
-      "colour": req.body.colour,
-      "size": req.body.size,
-      "price": req.body.price
+        "_id": id,
+        "name": req.body.name,
+        "number": req.body.number,
+        "email": req.body.email
     });
   
-    // find the clothing item via db.clothing.update({"_id":id}) and then update
-    Clothing.updateOne({_id: id}, updatedClothingItem, {}, (err) =>{
+    // find the Contact item via db.Contact.update({"_id":id}) and then update
+    Contact.updateOne({_id: id}, updatedContactItem, {}, (err) =>{
       if(err)
       {
         console.error(err);
         res.end(err);
       }
   
-      res.redirect('/clothing-list');
+      res.redirect('/Contact-list');
     });
 }
 
 // Process (C)reate page
 export function ProcessAddPage(req: Request, res: Response, next: NextFunction): void
 {
-  // instantiate a new Clothing
-  let newContact = new Clothing
+  // instantiate a new Contact
+  let newContact = new Contact
   ({
     "name": req.body.name,
     "brand": req.body.brand,
@@ -100,15 +97,15 @@ export function ProcessAddPage(req: Request, res: Response, next: NextFunction):
     "price": req.body.price
   });
 
-  // db.clothing.insert({clothing data is here...})
-  Clothing.create(newContact, (err:NativeError) => {
+  // db.Contact.insert({Contact data is here...})
+  Contact.create(newContact, (err:NativeError) => {
     if(err)
     {
       console.error(err);
       res.end(err);
     }
 
-    res.redirect('/clothing-list');
+    res.redirect('/Contact-list');
   });
 }
 
@@ -117,14 +114,14 @@ export function ProcessDeletePage(req: Request, res: Response, next: NextFunctio
 {
     let id = req.params.id;
 
-  // db.clothing.remove({"_id: id"})
-  Clothing.remove({_id: id}, (err) => {
+  // db.Contact.remove({"_id: id"})
+  Contact.remove({_id: id}, (err) => {
     if(err)
     {
       console.error(err);
       res.end(err);
     }
 
-    res.redirect('/clothing-list');
+    res.redirect('/Contact-list');
   });
 }
