@@ -10,25 +10,61 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+         <% if (title  ==  "Home") {%>
+            <li class="nav-item active">
             <a class="nav-link active" href="/home"><i class="fas fa-home fa-lg"></i> Home </a>
+
+          <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/home"><i class="fas fa-home fa-lg"></i> Home </a>
+            <% } %>
           </li>
+           <% if (title  ==  "About Us") {%>
+              <li class="nav-item active">
+            <a class="nav-link active" href="/about"><i class="fas fa-info fa-lg"></i> About</a>
+
+            <% } else { %>
           <li class="nav-item">
             <a class="nav-link" href="/about"><i class="fas fa-info fa-lg"></i> About</a>
+            <% } %>
+
           </li>
+           <% if (title  ==  "Our Projects") {%>
+              <li class="nav-item active">
+            <a class="nav-link active" href="/projects"><i class="fas fa-cog fa-lg"></i> Project</a>
+
+            <% } else { %>
           <li class="nav-item">
             <a class="nav-link" href="/projects"><i class="fas fa-cog fa-lg"></i> Project</a>
+            <% } %>
           </li>
+           <% if (title  ==  "Our Services") {%>
+              <li class="nav-item active">
+            <a class="nav-link active" href="/services"><i class="fas fa-map fa-lg"></i> Services</a>
+
+            <% } else { %>
           <li class="nav-item">
             <a class="nav-link" href="/services"><i class="fas fa-map fa-lg"></i> Services</a>
+            <% } %>
           </li>
+           <% if (title  ==  "Contact Us") {%>
+              <li class="nav-item active">
+            <a class="nav-link active" href="/contact"><i class="fas fa-phone fa-lg"></i> Contact</a>
+
+            <% } else { %>
           <li class="nav-item">
             <a class="nav-link" href="/contact"><i class="fas fa-phone fa-lg"></i> Contact</a>
+            <% } %>
           </li>
 
           <!-- Contact List Secure area and Authentication Links -->
+           <% if (title  ==  "Contact List") {%>
+              <li class="nav-item ">
+            <a class="nav-link active" href="/Contact-list"><i class="fas fa-address-book fa-lg"></i> Business Contact List</a>
+            <% } else { %>
           <li class="nav-item">
             <a class="nav-link" href="/Contact-list"><i class="fas fa-address-book fa-lg"></i> Business Contact List</a>
+            <% } %>
           </li>
 
           <% if(displayName) { %>
